@@ -18,9 +18,10 @@
 
 - (instancetype)initWithRequestHeaders: (NSDictionary *)requestHeaders
                         andRequestBody:(NSDictionary *)requestBody
+                         andRequestURL:(NSURL *)requestURL
                       andRequestMethod:(PKRequestMethod *)requestMethod
 {
-    self = [super init];
+    self = [super initWithURL:requestURL];
     if (self) {
         self.requestHeaders = requestHeaders;
         self.requestBody = requestBody;

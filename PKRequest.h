@@ -17,19 +17,20 @@ typedef NS_ENUM(NSUInteger, PKRequestMethod) {
 
 @interface PKRequest : NSURLRequest
 
-#pragma mark properties
+#pragma mark- properties
 
 @property (strong, nonatomic) NSDictionary *requestHeaders;
 @property (strong, nonatomic) NSDictionary *requestBody;
 @property (nonatomic) PKRequestMethod *requestMethod;
 
-#pragma mark Initializers
+#pragma mark- Initializers
 - (instancetype)initWithRequestHeaders: (NSDictionary *)requestHeaders
                         andRequestBody:(NSDictionary *)requestBody
+                         andRequestURL:(NSURL *)requestURL
                       andRequestMethod:(PKRequestMethod *)requestMethod;
 
 
-#pragma mark Helper methods
+#pragma mark- Helper methods
 -(NSString *)httpMethodFromRequestMethod:(PKRequestMethod *)method;
 -(NSArray<NSString *> *)supportedrequestMethods;
 @end
