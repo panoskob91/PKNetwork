@@ -26,6 +26,8 @@
         self.requestHeaders = requestHeaders;
         self.requestBody = requestBody;
         self.requestMethod = requestMethod;
+        
+        [self setHTTPMethod:[self httpMethodFromRequestMethod:self.requestMethod]];
     }
     return self;
 }
@@ -53,6 +55,17 @@
 -(NSArray<NSString *> *)supportedrequestMethods
 {
     return @[@"GET", @"POST", @"PUT", @"DELETE"];
+}
+
+- (NSString *)description
+{
+    NSString *httpMethod = [self httpMethodFromRequestMethod:self.requestMethod];
+    NSString *description = [NSString
+                                stringWithFormat:@"request Headers = %@, requestBody = %@, requestMethod = %@",
+                                                self.requestHeaders,
+                                                self.requestBody,
+                                                httpMethod];
+    return description;
 }
 
 @end

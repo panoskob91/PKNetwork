@@ -19,3 +19,4 @@ FOUNDATION_EXPORT const unsigned char PKNetworkVersionString[];
 //Add public headers
 #import <PKNetwork/PKRequest.h>
 #import <PKNetwork/PKResponse.h>
+#import <PKNetwork/PKCommunicator.h>

@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, PKRequestMethod) {
     DELETE
 };
 
-@interface PKRequest : NSURLRequest
+@interface PKRequest : NSMutableURLRequest
 
 #pragma mark- properties
 
@@ -29,6 +29,9 @@ typedef NS_ENUM(NSUInteger, PKRequestMethod) {
                          andRequestURL:(NSURL *)requestURL
                       andRequestMethod:(PKRequestMethod *)requestMethod;
 
+#ifdef DEBUG
+- (NSString *)description;
+#endif
 
 #pragma mark- Helper methods
 -(NSString *)httpMethodFromRequestMethod:(PKRequestMethod *)method;

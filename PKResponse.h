@@ -82,16 +82,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PKResponse : NSURLResponse
 
 @property (strong, nonatomic)  NSDictionary * _Nullable responseObject;
-@property (strong, nonatomic) NSDictionary *responseHeaders;
-@property (nonatomic) PKResponseStatus *responseStatus;
+@property (strong, nonatomic) NSDictionary * _Nullable responseHeaders;
+@property (nonatomic) PKResponseStatus * _Nullable responseStatus;
 
 #pragma mark- Initializers
-- (instancetype)initWithresponseHeaders:(NSDictionary *)responseHeaders
+- (instancetype)initWithResponseHeaders:(NSDictionary *)responseHeaders
                       andResponseObject:(NSDictionary *)responseObject
                       andResponseStatus:(PKResponseStatus *)responseStatus;
 
+#ifdef DEBUG
+- (NSString *)description;
+#endif
+
 #pragma mark- Helper methods
 - (NSNumber *)statusCodeFrom:(PKResponseStatus *)status;
+- (PKResponseStatus *)responseStatusFromCode:(NSNumber *)statusCode;
 
 @end
 
