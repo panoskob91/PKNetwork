@@ -21,7 +21,7 @@ typedef NS_ENUM(NSUInteger, PKRequestMethod) {
 
 @property (strong, nonatomic) NSDictionary *requestHeaders;
 @property (strong, nonatomic) NSDictionary *requestBody;
-@property (nonatomic) PKRequestMethod *requestMethod;
+@property (nonatomic, assign) enum PKRequestMethod *requestMethod;
 
 #pragma mark- Initializers
 - (instancetype)initWithRequestHeaders: (NSDictionary *)requestHeaders

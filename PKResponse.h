@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic)  NSDictionary * _Nullable responseObject;
 @property (strong, nonatomic) NSDictionary * _Nullable responseHeaders;
-@property (nonatomic) PKResponseStatus * _Nullable responseStatus;
+@property (nonatomic, assign) enum PKResponseStatus * _Nullable responseStatus;
 
 #pragma mark- Initializers
 - (instancetype)initWithResponseHeaders:(NSDictionary *)responseHeaders

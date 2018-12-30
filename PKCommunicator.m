@@ -45,20 +45,23 @@
                                                                          //NO error error == nil
                                                                          if (!error) {
                                                                              if (responseHeaders && json) {
+                                                                                 PKResponseStatus rStatus = *responseStatus;
                                                                                  PKResponse *successResponse = [[PKResponse alloc] initWithResponseHeaders:responseHeaders
                                                                                                                                          andResponseObject:json
-                                                                                                                                         andResponseStatus:responseStatus];
+                                                                                                                                         andResponseStatus:&rStatus];
                                                                                  sBlock(successResponse);
                                                                              } else {
                                                                                  //Fail block
                                                                                  PKResponse *failResponse = [[PKResponse alloc] init];
-                                                                                 failResponse.responseStatus = responseStatus;
+                                                                                 PKResponseStatus failResponseStatus = *responseStatus;
+                                                                                 failResponse.responseStatus = &failResponseStatus;
                                                                                  fBlock(failResponse);
                                                                              }
                                                                          } else {
                                                                              //Fail, error != nil
                                                                              PKResponse *failResponse = [[PKResponse alloc] init];
-                                                                             failResponse.responseStatus = responseStatus;
+                                                                             PKResponseStatus failResponseStatus = *responseStatus;
+                                                                             failResponse.responseStatus = &failResponseStatus;
                                                                              fBlock(failResponse);
                                                                          }
                                                                      }];

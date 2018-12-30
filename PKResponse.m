@@ -31,7 +31,7 @@
     return statusCodeNumber;
 }
 
-- (PKResponseStatus *) responseStatusFromCode:(NSNumber *)statusCode
+- (PKResponseStatus *)responseStatusFromCode:(NSNumber *)statusCode
 {
     NSInteger integerStatusCode = statusCode.integerValue;
     NSInteger *code = &integerStatusCode;
