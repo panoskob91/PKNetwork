@@ -234,14 +234,37 @@
     return responseStatus;
 }
 
+- (NSNumber *)getStatusCode
+{
+    if (self.responseStatus) {
+        return [self statusCodeFrom:self.responseStatus];
+    }
+    return 0;
+}
+
+- (NSDictionary *)getResponseObject
+{
+    if (self.responseObject) {
+        return self.responseObject;
+    }
+    return @{};
+}
+
+- (NSDictionary *)getResponseHeaders
+{
+    if (self.responseHeaders) {
+        return self.responseHeaders;
+    }
+    return @{};
+}
 #pragma mark- Overrodes
 - (NSString *)description
 {
-    NSNumber *statusCode = [self statusCodeFrom:self.responseStatus];
+    NSNumber *statusCode = [self getStatusCode];
     NSString *responseStatus = [NSString stringWithFormat:@"%@", statusCode];
     NSString *description = [NSString stringWithFormat:@"responseObject = %@, responseHeaders = %@, responseStatus = %@",
-                                            self.responseObject,
-                                            self.responseHeaders,
+                                            [self getResponseObject],
+                                            [self getResponseHeaders],
                                             responseStatus];
     return description;
 }
