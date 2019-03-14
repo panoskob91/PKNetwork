@@ -87,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark- Initializers
 - (instancetype)initWithResponseHeaders:(NSDictionary *)responseHeaders
-                      andResponseObject:(NSDictionary *)responseObject
+                      andResponseObject:(id _Nullable)responseObject
                       andResponseStatus:(PKResponseStatus *)responseStatus;
 
 #ifdef DEBUG

@@ -12,7 +12,7 @@
 
 #pragma mark- Initializers
 -(instancetype)initWithResponseHeaders:(NSDictionary *)responseHeaders
-                     andResponseObject:(NSDictionary *)responseObject
+                     andResponseObject:(id _Nullable)responseObject
                      andResponseStatus:(PKResponseStatus *)responseStatus
 {
     self = [super init];
