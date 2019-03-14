@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, PKRequestMethod) {
 #pragma mark- properties
 
 @property (strong, nonatomic) NSDictionary *requestHeaders;
-@property (strong, nonatomic) NSDictionary *requestBody;
+@property (strong, nonatomic) NSDictionary * _Nullable requestBody;
 @property (nonatomic, assign) enum PKRequestMethod *requestMethod;
 
 #pragma mark- Initializers

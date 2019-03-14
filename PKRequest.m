@@ -17,7 +17,7 @@
 @implementation PKRequest
 
 - (instancetype)initWithRequestHeaders: (NSDictionary *)requestHeaders
-                        andRequestBody:(NSDictionary *)requestBody
+                        andRequestBody:(NSDictionary * _Nullable )requestBody
                          andRequestURL:(NSURL *)requestURL
                       andRequestMethod:(PKRequestMethod *)requestMethod
 {
