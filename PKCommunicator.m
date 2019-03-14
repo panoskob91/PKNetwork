@@ -28,53 +28,53 @@
                                                                      completionHandler:^(NSData * _Nullable data,
                                                                                          NSURLResponse * _Nullable response,
                                                                                          NSError * _Nullable error) {
-                                                                         
-                                                                         if (!data || !response) {
-                                                                             PKResponse *failResponse = [[PKResponse alloc] init];
-                                                                             NSDictionary *emptyDataOrResponseDictionary = @{@"message": @"Data or response is empty"};
-                                                                             failResponse.responseObject = emptyDataOrResponseDictionary;
-                                                                             fBlock(failResponse);
-                                                                         } else {
-                                                                             //Setup
-                                                                             NSError *jsonParsingError = nil;
-                                                                             NSDictionary *json =
-                                                                             [NSJSONSerialization JSONObjectWithData:data
-                                                                                                             options:kNilOptions
-                                                                                                               error:&jsonParsingError];
-                                                                             
-                                                                             NSHTTPURLResponse *callResponse = (NSHTTPURLResponse *)response;
-                                                                             NSDictionary *responseHeaders = callResponse.allHeaderFields;
-                                                                             NSNumber *statusCode = [NSNumber numberWithInteger:callResponse.statusCode];
-                                                                             
-                                                                             PKResponse *networkResponse = [[PKResponse alloc] init];
-                                                                             PKResponseStatus *responseStatus = [networkResponse responseStatusFromCode:statusCode];
-                                                                             
-                                                                             //Sucess
-                                                                             //NO error error == nil
-                                                                             if (!error) {
-                                                                                 if (responseHeaders && json) {
-                                                                                     PKResponseStatus rStatus = *responseStatus;
-                                                                                     PKResponse *successResponse = [[PKResponse alloc] initWithResponseHeaders:responseHeaders
-                                                                                                                                             andResponseObject:json
-                                                                                                                                             andResponseStatus:&rStatus];
-                                                                                     sBlock(successResponse);
-                                                                                 } else {
-                                                                                     //Fail block
-                                                                                     PKResponse *failResponse = [[PKResponse alloc] init];
-                                                                                     PKResponseStatus failResponseStatus = *responseStatus;
-                                                                                     failResponse.responseStatus = &failResponseStatus;
-                                                                                     fBlock(failResponse);
-                                                                                 }
-                                                                             } else {
-                                                                                 //Fail, error != nil
-                                                                                 PKResponse *failResponse = [[PKResponse alloc] init];
-                                                                                 PKResponseStatus failResponseStatus = *responseStatus;
-                                                                                 failResponse.responseStatus = &failResponseStatus;
-                                                                                 fBlock(failResponse);
-                                                                             }
-                                                                         }
-                                                                         
-                                                                     }];
+         
+                 if (!data || !response) {
+                     PKResponse *failResponse = [[PKResponse alloc] init];
+                     NSDictionary *emptyDataOrResponseDictionary = @{@"message": @"Data or response is empty"};
+                     failResponse.responseObject = emptyDataOrResponseDictionary;
+                     fBlock(failResponse);
+                 } else {
+                     //Setup
+                     NSError *jsonParsingError = nil;
+                     NSDictionary *json =
+                     [NSJSONSerialization JSONObjectWithData:data
+                                                     options:kNilOptions
+                                                       error:&jsonParsingError];
+                     
+                     NSHTTPURLResponse *callResponse = (NSHTTPURLResponse *)response;
+                     NSDictionary *responseHeaders = callResponse.allHeaderFields;
+                     NSNumber *statusCode = [NSNumber numberWithInteger:callResponse.statusCode];
+                     
+                     PKResponse *networkResponse = [[PKResponse alloc] init];
+                     PKResponseStatus *responseStatus = [networkResponse responseStatusFromCode:statusCode];
+                     
+                     //Sucess
+                     //NO error error == nil
+                     if (!error) {
+                         if (responseHeaders && json) {
+                             PKResponseStatus rStatus = *responseStatus;
+                             PKResponse *successResponse = [[PKResponse alloc] initWithResponseHeaders:responseHeaders
+                                                                                     andResponseObject:json
+                                                                                     andResponseStatus:&rStatus];
+                             sBlock(successResponse);
+                         } else {
+                             //Fail block
+                             PKResponse *failResponse = [[PKResponse alloc] init];
+                             PKResponseStatus failResponseStatus = *responseStatus;
+                             failResponse.responseStatus = &failResponseStatus;
+                             fBlock(failResponse);
+                         }
+                     } else {
+                         //Fail, error != nil
+                         PKResponse *failResponse = [[PKResponse alloc] init];
+                         PKResponseStatus failResponseStatus = *responseStatus;
+                         failResponse.responseStatus = &failResponseStatus;
+                         fBlock(failResponse);
+                     }
+                 }
+         
+        }];
     
     [dataTask resume];
     

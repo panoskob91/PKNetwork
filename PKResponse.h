@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PKResponse : NSURLResponse
 
-@property (strong, nonatomic)  NSDictionary * _Nullable responseObject;
+@property (strong, nonatomic)  id _Nullable responseObject;
 @property (strong, nonatomic) NSDictionary * _Nullable responseHeaders;
 @property (nonatomic, assign) enum PKResponseStatus * _Nullable responseStatus;
 

@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, PKRequestMethod) {
 
 #pragma mark- Initializers
 - (instancetype)initWithRequestHeaders: (NSDictionary *)requestHeaders
-                        andRequestBody:(NSDictionary *)requestBody
+                        andRequestBody:(NSDictionary * _Nullable)requestBody
                          andRequestURL:(NSURL *)requestURL
                       andRequestMethod:(PKRequestMethod *)requestMethod;
 

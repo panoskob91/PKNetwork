@@ -30,9 +30,11 @@
         self.allHTTPHeaderFields = self.requestHeaders;
         self.HTTPMethod = [self httpMethodFromRequestMethod:self.requestMethod];
         NSError *error = nil;
-        self.HTTPBody =  [NSJSONSerialization dataWithJSONObject:self.requestBody
-                                                         options:NSJSONWritingPrettyPrinted
-                                                           error:&error];
+        if (self.requestBody) {
+            self.HTTPBody =  [NSJSONSerialization dataWithJSONObject:self.requestBody
+                                                             options:NSJSONWritingPrettyPrinted
+                                                               error:&error];
+        }
     }
     return self;
 }
