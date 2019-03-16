@@ -33,7 +33,9 @@
                      PKResponse *failResponse = [[PKResponse alloc] init];
                      NSDictionary *emptyDataOrResponseDictionary = @{@"message": @"Data or response is empty"};
                      failResponse.responseObject = emptyDataOrResponseDictionary;
-                     fBlock(failResponse);
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         fBlock(failResponse);
+                     });
                  } else {
                      //Setup
                      NSError *jsonParsingError = nil;
@@ -57,20 +59,26 @@
                              PKResponse *successResponse = [[PKResponse alloc] initWithResponseHeaders:responseHeaders
                                                                                      andResponseObject:json
                                                                                      andResponseStatus:&rStatus];
-                             sBlock(successResponse);
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 sBlock(successResponse);
+                             });
                          } else {
                              //Fail block
                              PKResponse *failResponse = [[PKResponse alloc] init];
                              PKResponseStatus failResponseStatus = *responseStatus;
                              failResponse.responseStatus = &failResponseStatus;
-                             fBlock(failResponse);
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 fBlock(failResponse);
+                             });
                          }
                      } else {
                          //Fail, error != nil
                          PKResponse *failResponse = [[PKResponse alloc] init];
                          PKResponseStatus failResponseStatus = *responseStatus;
                          failResponse.responseStatus = &failResponseStatus;
-                         fBlock(failResponse);
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             fBlock(failResponse);
+                         });
                      }
                  }
          
