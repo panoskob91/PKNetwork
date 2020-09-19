@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <PKNetwork/PKRequest.h>
-#import <PKNetwork/PKResponse.h>
+#import "PKRequest.h"
+#import "PKResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

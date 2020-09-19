@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, PKRequestMethod) {
                               andRequestMethod:(PKRequestMethod)requestMethod;
 
 #ifdef DEBUG
-- (NSString * _Nullable)description;
+//- (NSString * _Nullable)description;
 #endif
 
 #pragma mark- Helper methods
