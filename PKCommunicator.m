@@ -49,24 +49,23 @@
                      NSNumber *statusCode = [NSNumber numberWithInteger:callResponse.statusCode];
                      
                      PKResponse *networkResponse = [[PKResponse alloc] init];
-                     PKResponseStatus *responseStatus = [networkResponse responseStatusFromCode:statusCode];
+                     PKResponseStatus responseStatus = [networkResponse responseStatusFromCode:statusCode];
                      
                      //Sucess
                      //NO error error == nil
                      if (!error) {
                          if (responseHeaders && json) {
-                             PKResponseStatus rStatus = *responseStatus;
                              PKResponse *successResponse = [[PKResponse alloc] initWithResponseHeaders:responseHeaders
                                                                                      andResponseObject:json
-                                                                                     andResponseStatus:&rStatus];
+                                                                                     andResponseStatus:responseStatus];
                              dispatch_async(dispatch_get_main_queue(), ^{
                                  sBlock(successResponse);
                              });
                          } else {
                              //Fail block
                              PKResponse *failResponse = [[PKResponse alloc] init];
-                             PKResponseStatus failResponseStatus = *responseStatus;
-                             failResponse.responseStatus = &failResponseStatus;
+                             PKResponseStatus failResponseStatus = responseStatus;
+                             failResponse.responseStatus = failResponseStatus;
                              dispatch_async(dispatch_get_main_queue(), ^{
                                  fBlock(failResponse);
                              });
@@ -74,8 +73,8 @@
                      } else {
                          //Fail, error != nil
                          PKResponse *failResponse = [[PKResponse alloc] init];
-                         PKResponseStatus failResponseStatus = *responseStatus;
-                         failResponse.responseStatus = &failResponseStatus;
+                         PKResponseStatus failResponseStatus = responseStatus;
+                         failResponse.responseStatus = failResponseStatus;
                          dispatch_async(dispatch_get_main_queue(), ^{
                              fBlock(failResponse);
                          });

@@ -19,7 +19,7 @@
 - (instancetype)initWithRequestHeaders: (NSDictionary *)requestHeaders
                         andRequestBody:(NSDictionary * _Nullable )requestBody
                          andRequestURL:(NSURL *)requestURL
-                      andRequestMethod:(PKRequestMethod *)requestMethod
+                      andRequestMethod:(PKRequestMethod)requestMethod
 {
     self = [super initWithURL:requestURL];
     if (self) {
@@ -39,10 +39,10 @@
     return self;
 }
 
--(NSString *)httpMethodFromRequestMethod:(PKRequestMethod *)method
+-(NSString *)httpMethodFromRequestMethod:(PKRequestMethod)method
 {
     NSString *stringMethod;
-    switch (*method) {
+    switch (method) {
         case GET:
             stringMethod = @"GET";
             break;

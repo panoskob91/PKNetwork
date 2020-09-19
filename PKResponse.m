@@ -13,7 +13,7 @@
 #pragma mark- Initializers
 -(instancetype)initWithResponseHeaders:(NSDictionary *)responseHeaders
                      andResponseObject:(id _Nullable)responseObject
-                     andResponseStatus:(PKResponseStatus *)responseStatus
+                     andResponseStatus:(PKResponseStatus)responseStatus
 {
     self = [super init];
     if (self) {
@@ -25,208 +25,207 @@
 }
 
 #pragma mark- Helper methods
-- (NSNumber *)statusCodeFrom:(PKResponseStatus *)status
+- (NSNumber *)statusCodeFrom:(PKResponseStatus)status
 {
-    NSNumber *statusCodeNumber = [[NSNumber alloc] initWithUnsignedInt:*status];
+    NSNumber *statusCodeNumber = [[NSNumber alloc] initWithUnsignedInteger:status];
     return statusCodeNumber;
 }
 
-- (PKResponseStatus *)responseStatusFromCode:(NSNumber *)statusCode
+- (PKResponseStatus)responseStatusFromCode:(NSNumber *)statusCode
 {
     NSInteger integerStatusCode = statusCode.integerValue;
-    NSInteger *code = &integerStatusCode;
     
     PKResponseStatus defaultStatus = Continue;
-    PKResponseStatus *responseStatus = &defaultStatus;
+    PKResponseStatus responseStatus = defaultStatus;
     
-    switch (*code) {
+    switch (integerStatusCode) {
         //1xx Informational
         case 100:
-            *responseStatus = Continue;
+            responseStatus = Continue;
             break;
         case 101:
-            *responseStatus = SwitchingProtocols;
+            responseStatus = SwitchingProtocols;
             break;
         case 102:
-            *responseStatus = Processing;
+            responseStatus = Processing;
             break;
         case 103:
-            *responseStatus = EarlyHints;
+            responseStatus = EarlyHints;
             break;
         //2xx Success
         case 200:
-            *responseStatus = OK;
+            responseStatus = OK;
             break;
         case 201:
-            *responseStatus = Created;
+            responseStatus = Created;
             break;
         case 202:
-            *responseStatus = Accepted;
+            responseStatus = Accepted;
             break;
         case 203:
-            *responseStatus = NonAuthoritativeInformation;
+            responseStatus = NonAuthoritativeInformation;
             break;
         case 204:
-            *responseStatus = NoContent;
+            responseStatus = NoContent;
             break;
         case 205:
-            *responseStatus = ResetContent;
+            responseStatus = ResetContent;
             break;
         case 206:
-            *responseStatus = PartialContent;
+            responseStatus = PartialContent;
             break;
         case 207:
-            *responseStatus = MultiStatus;
+            responseStatus = MultiStatus;
             break;
         case 208:
-            *responseStatus = AlreadyReported;
+            responseStatus = AlreadyReported;
             break;
         case 226:
-            *responseStatus = IMUsed;
+            responseStatus = IMUsed;
             break;
         //3xx Redirection
         case 300:
-            *responseStatus = MultipleChoices;
+            responseStatus = MultipleChoices;
             break;
         case 301:
-            *responseStatus = MovedPermanently;
+            responseStatus = MovedPermanently;
             break;
         case 302:
-            *responseStatus = Found;
+            responseStatus = Found;
             break;
         case 303:
-            *responseStatus = SeeOther;
+            responseStatus = SeeOther;
             break;
         case 304:
-            *responseStatus = NotModified;
+            responseStatus = NotModified;
             break;
         case 305:
-            *responseStatus = UseProxy;
+            responseStatus = UseProxy;
             break;
         case 306:
-            *responseStatus = SwitchProxy;
+            responseStatus = SwitchProxy;
             break;
         case 307:
-            *responseStatus = TemporaryRedirect;
+            responseStatus = TemporaryRedirect;
             break;
         //4xx Client errors
         case 400:
-            *responseStatus = BadRequest;
+            responseStatus = BadRequest;
             break;
         case 401:
-            *responseStatus = Unauthorized;
+            responseStatus = Unauthorized;
             break;
         case 402:
-            *responseStatus = PaymentRequired;
+            responseStatus = PaymentRequired;
             break;
         case 403:
-            *responseStatus = Forbidden;
+            responseStatus = Forbidden;
             break;
         case 404:
-            *responseStatus = NotFound;
+            responseStatus = NotFound;
             break;
         case 405:
-            *responseStatus = MethodNotAllowed;
+            responseStatus = MethodNotAllowed;
             break;
         case 406:
-            *responseStatus = NotAcceptable;
+            responseStatus = NotAcceptable;
             break;
         case 407:
-            *responseStatus = ProxyAuthenticationRequired;
+            responseStatus = ProxyAuthenticationRequired;
             break;
         case 408:
-            *responseStatus = RequestTimeout;
+            responseStatus = RequestTimeout;
             break;
         case 409:
-            *responseStatus = Conflict;
+            responseStatus = Conflict;
             break;
         case 410:
-            *responseStatus = Gone;
+            responseStatus = Gone;
             break;
         case 411:
-            *responseStatus = LengthRequired;
+            responseStatus = LengthRequired;
             break;
         case 412:
-            *responseStatus = PreconditionFailed;
+            responseStatus = PreconditionFailed;
             break;
         case 413:
-            *responseStatus = PayloadTooLarge;
+            responseStatus = PayloadTooLarge;
             break;
         case 414:
-            *responseStatus = URITooLong;
+            responseStatus = URITooLong;
             break;
         case 415:
-            *responseStatus = UnsupportedMediaType;
+            responseStatus = UnsupportedMediaType;
             break;
         case 416:
-            *responseStatus = RangeNotSatisfiable;
+            responseStatus = RangeNotSatisfiable;
             break;
         case 417:
-            *responseStatus = ExpectationFailed;
+            responseStatus = ExpectationFailed;
             break;
         case 418:
-            *responseStatus = IAmATeapot;
+            responseStatus = IAmATeapot;
             break;
         case 421:
-            *responseStatus = MisdirectedRequest;
+            responseStatus = MisdirectedRequest;
             break;
         case 422:
-            *responseStatus = UnprocessableEntity;
+            responseStatus = UnprocessableEntity;
             break;
         case 423:
-            *responseStatus = Locked;
+            responseStatus = Locked;
             break;
         case 424:
-            *responseStatus = FailedDependency;
+            responseStatus = FailedDependency;
             break;
         case 426:
-            *responseStatus = UpgradeRequired;
+            responseStatus = UpgradeRequired;
             break;
         case 428:
-            *responseStatus = PreconditionRequired;
+            responseStatus = PreconditionRequired;
             break;
         case 429:
-            *responseStatus = TooManyRequests;
+            responseStatus = TooManyRequests;
             break;
         case 431:
-            *responseStatus = RequestHeaderFieldsTooLarge;
+            responseStatus = RequestHeaderFieldsTooLarge;
             break;
         case 451:
-            *responseStatus = UnavailableForLegalReasons;
+            responseStatus = UnavailableForLegalReasons;
             break;
         //5xx Server errors
         case 500:
-            *responseStatus = InternalServerError;
+            responseStatus = InternalServerError;
             break;
         case 501:
-            *responseStatus = NotImplemented;
+            responseStatus = NotImplemented;
             break;
         case 502:
-            *responseStatus = BadGateway;
+            responseStatus = BadGateway;
             break;
         case 503:
-            *responseStatus = ServiceUnavailable;
+            responseStatus = ServiceUnavailable;
             break;
         case 504:
-            *responseStatus = GatewayTimeout;
+            responseStatus = GatewayTimeout;
             break;
         case 505:
-            *responseStatus = HTTPVersionNotSupported;
+            responseStatus = HTTPVersionNotSupported;
             break;
         case 506:
-            *responseStatus = VariantAlsoNegotiates;
+            responseStatus = VariantAlsoNegotiates;
             break;
         case 507:
-            *responseStatus = InsufficientStorage;
+            responseStatus = InsufficientStorage;
             break;
         case 508:
-            *responseStatus = LoopDetected;
+            responseStatus = LoopDetected;
             break;
         case 510:
-            *responseStatus = NotExtended;
+            responseStatus = NotExtended;
             break;
         case 511:
-            *responseStatus = NetworkAuthenticationRequired;
+            responseStatus = NetworkAuthenticationRequired;
             break;
         default:
             break;

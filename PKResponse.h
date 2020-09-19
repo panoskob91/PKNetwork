@@ -83,20 +83,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic)  id _Nullable responseObject;
 @property (strong, nonatomic) NSDictionary * _Nullable responseHeaders;
-@property (nonatomic, assign) enum PKResponseStatus * _Nullable responseStatus;
+@property (nonatomic, assign) enum PKResponseStatus responseStatus;
 
 #pragma mark- Initializers
 - (instancetype)initWithResponseHeaders:(NSDictionary *)responseHeaders
                       andResponseObject:(id _Nullable)responseObject
-                      andResponseStatus:(PKResponseStatus *)responseStatus;
+                      andResponseStatus:(PKResponseStatus)responseStatus;
 
 #ifdef DEBUG
 - (NSString *)description;
 #endif
 
 #pragma mark- Helper methods
-- (NSNumber *)statusCodeFrom:(PKResponseStatus *)status;
-- (PKResponseStatus *)responseStatusFromCode:(NSNumber *)statusCode;
+- (NSNumber *)statusCodeFrom:(PKResponseStatus)status;
+- (PKResponseStatus)responseStatusFromCode:(NSNumber *)statusCode;
 
 @end
 
