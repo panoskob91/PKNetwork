@@ -59,7 +59,7 @@
     return stringMethod;
 }
 
--(NSArray<NSString *> *)supportedrequestMethods
+-(NSArray<NSString *> *)supportedRequestMethods
 {
     return @[@"GET", @"POST", @"PUT", @"DELETE"];
 }

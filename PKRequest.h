@@ -19,21 +19,21 @@ typedef NS_ENUM(NSUInteger, PKRequestMethod) {
 
 #pragma mark- properties
 
-@property (strong, nonatomic) NSDictionary *requestHeaders;
-@property (strong, nonatomic) NSDictionary * _Nullable requestBody;
+@property (strong, nonatomic, nullable) NSDictionary *requestHeaders;
+@property (strong, nonatomic, nullable) NSDictionary *requestBody;
 @property (nonatomic, assign) enum PKRequestMethod *requestMethod;
 
 #pragma mark- Initializers
-- (instancetype)initWithRequestHeaders: (NSDictionary *)requestHeaders
-                        andRequestBody:(NSDictionary * _Nullable)requestBody
-                         andRequestURL:(NSURL *)requestURL
-                      andRequestMethod:(PKRequestMethod *)requestMethod;
+- (nonnull instancetype)initWithRequestHeaders:(NSDictionary * _Nullable)requestHeaders
+                                andRequestBody:(NSDictionary * _Nullable)requestBody
+                                 andRequestURL:(NSURL * _Nonnull)requestURL
+                              andRequestMethod:(PKRequestMethod * _Nonnull)requestMethod;
 
 #ifdef DEBUG
-- (NSString *)description;
+- (NSString * _Nullable)description;
 #endif
 
 #pragma mark- Helper methods
--(NSString *)httpMethodFromRequestMethod:(PKRequestMethod *)method;
--(NSArray<NSString *> *)supportedrequestMethods;
+-(NSString * _Nonnull)httpMethodFromRequestMethod:(PKRequestMethod *)method;
+-(NSArray<NSString *> * _Nonnull)supportedRequestMethods;
 @end
