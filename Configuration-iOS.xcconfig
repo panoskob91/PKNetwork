@@ -1,0 +1,17 @@
+//
+//  Configuration.xcconfig
+//  PKNetwork
+//
+//  Created by Panagiotis  Kompotis  on 20/9/20.
+//  Copyright © 2020 Panagiotis  Kompotis. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+OS = IOS
+FRAMEWORK_NAME = $(FRAMEWORK_NAME_$(OS))
+
+
+FRAMEWORK_NAME_IOS = PKNetwork
+//FRAMEWORK_NAME_OSX = PKNetwork
