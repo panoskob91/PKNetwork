@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BA6B65C525178D5200B08125 /* Configuration-MacOS.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BAEC66432517766E00687C50 /* Configuration-MacOS.xcconfig */; };
 		BA6B65C625178E0700B08125 /* Configuration-iOS.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BA6B65C325178D4900B08125 /* Configuration-iOS.xcconfig */; };
+		BA6B65C8251795D100B08125 /* BaseConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BA6B65C72517950100B08125 /* BaseConfiguration.xcconfig */; };
+		BA6B65C9251795D200B08125 /* BaseConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BA6B65C72517950100B08125 /* BaseConfiguration.xcconfig */; };
 		BACBC11725167921007464D7 /* PKNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = BACBC11525167921007464D7 /* PKNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAF8D4A725167E7C00568D97 /* PKRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BAF8D49B25167E4F00568D97 /* PKRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAF8D4A825167E7D00568D97 /* PKRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BAF8D49B25167E4F00568D97 /* PKRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		BA6B65C325178D4900B08125 /* Configuration-iOS.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Configuration-iOS.xcconfig"; sourceTree = "<group>"; };
+		BA6B65C72517950100B08125 /* BaseConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BaseConfiguration.xcconfig; sourceTree = "<group>"; };
 		BACBC11325167921007464D7 /* PKNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PKNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BACBC11525167921007464D7 /* PKNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKNetwork.h; sourceTree = "<group>"; };
 		BACBC11625167921007464D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 				BAF8D49F25167E5000568D97 /* PKResponse.m */,
 				BAF8D49A25167E4F00568D97 /* PKCommunicator.h */,
 				BAF8D4A125167E5100568D97 /* PKCommunicator.m */,
+				BA6B65C72517950100B08125 /* BaseConfiguration.xcconfig */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -216,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA6B65C9251795D200B08125 /* BaseConfiguration.xcconfig in Resources */,
 				BA6B65C525178D5200B08125 /* Configuration-MacOS.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA6B65C8251795D100B08125 /* BaseConfiguration.xcconfig in Resources */,
 				BA6B65C625178E0700B08125 /* Configuration-iOS.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

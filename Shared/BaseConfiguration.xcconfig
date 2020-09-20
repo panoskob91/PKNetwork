@@ -1,0 +1,18 @@
+//
+//  BaseConfiguration.xcconfig
+//  PKNetwork
+//
+//  Created by Panagiotis  Kompotis  on 20/9/20.
+//  Copyright © 2020 Panagiotis  Kompotis. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+//Declares the needed configuration parameters. The setting of wich will be done on the configuration files for each target.
+
+
+//OS parameter represents the operation system for wich we are building.
+OS = ""
+//The FRAMEWORK_NAME parameter will be sett by the respective configuration file for the platform we are compiling against. It sets the name of the framework on the client side.
+FRAMEWORK_NAME = $(FRAMEWORK_NAME_$(OS))

@@ -9,9 +9,7 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+#include "Shared/BaseConfiguration.xcconfig"
+
 OS = IOS
-FRAMEWORK_NAME = $(FRAMEWORK_NAME_$(OS))
-
-
 FRAMEWORK_NAME_IOS = PKNetwork
-//FRAMEWORK_NAME_OSX = PKNetwork
