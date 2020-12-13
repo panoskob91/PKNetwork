@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "PKNetwork is a framework for handling the networking of your app"
 
-  s.homepage     = "https://panoskob91@bitbucket.org/panoskob91/pknetwork.git"
+  s.homepage     = "https://github.com/panoskob91/PKNetwork.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
