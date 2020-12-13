@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "PKNetwork"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "PKNetwork is a framwork for network calls"
 
   # This description is used to generate tags and improve search results.
