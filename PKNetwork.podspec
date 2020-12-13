@@ -78,8 +78,8 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://panoskob91@bitbucket.org/panoskob91/pknetwork.git", :tag => "v#{s.version}" }
-  #s.source        = { :git => "https://panoskob91@bitbucket.org/panoskob91/pknetwork.git", :commit => "0156955f181fbb41ee5c937ecaa868286cdead3b" }
+  s.source       = { :git => "https://github.com/panoskob91/PKNetwork.git", :tag => "v#{s.version}" }
+  #s.source        = { :git => "https://github.com/panoskob91/PKNetwork.git", :commit => "0156955f181fbb41ee5c937ecaa868286cdead3b" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
